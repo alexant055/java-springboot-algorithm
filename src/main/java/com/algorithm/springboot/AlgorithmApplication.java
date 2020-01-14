@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JavaSpringbootAlgorithmApplication {
+public class AlgorithmApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JavaSpringbootAlgorithmApplication.class, args);
+		SpringApplication.run(AlgorithmApplication.class, args);
 	}
 
 }
