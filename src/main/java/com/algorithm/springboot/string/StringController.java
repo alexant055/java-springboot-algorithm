@@ -21,4 +21,10 @@ public class StringController {
 			@RequestParam(name = "value") String strValue) {
 		return stringService.reverseString(strValue);
 	}
+
+	@GetMapping(value = "/palindrome")
+	public ResponseEntity<ResultEntity> stringPalindrome(
+			@RequestParam(name = "value") String strValue) {
+		return stringService.stringPalindrome(strValue);
+	}
 }

@@ -19,15 +19,28 @@ public class StringService {
 
 	public ResponseEntity<ResultEntity> reverseString(String strValue) {
 
-		if (strValue != null && strValue != "") {
-			int len = strValue.length();
-			String reverseString = "";
-
-			for (int i = len - 1; i >= 0; i--)
-				reverseString = reverseString + strValue.charAt(i);
-
-			return response.successResponse(reverseString);
-		} else
+		if (strValue != null && strValue != "")
+			return response.successResponse(reverseValue(strValue));
+		else
 			return response.errorResponse(CONST.INVALID_STRING_MSG);
+	}
+
+	public ResponseEntity<ResultEntity> stringPalindrome(String strValue) {
+		if (strValue != null && strValue != "")
+			if (strValue.equalsIgnoreCase(reverseValue(strValue)))
+				return response.successResponse(strValue);
+			else
+				return response.errorResponse(CONST.NOT_PALINDROME);
+		else
+			return response.errorResponse(CONST.INVALID_STRING_MSG);
+	}
+
+	private String reverseValue(String strValue) {
+		int len = strValue.length();
+		String reverseString = "";
+
+		for (int i = len - 1; i >= 0; i--)
+			reverseString = reverseString + strValue.charAt(i);
+		return reverseString;
 	}
 }
